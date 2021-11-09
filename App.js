@@ -10,9 +10,18 @@ import Home from './screens/Home'
 
 
 export default function App() {
+  const MainNavigator = createStackNavigator();
   return (
-    <View style={styles.container}>
-      
+    <View style={{flex:1, }}>
+      <NavigationContainer>
+        <MainNavigator.Navigator
+        screenOptions={{headerShown:false}} 
+        initialRouteName="Login">
+          <MainNavigator.Screen name="Home" component={Home}/>
+          <MainNavigator.Screen name="Login" component={Login}/>
+
+        </MainNavigator.Navigator>
+      </NavigationContainer>
     </View>
   );
 }
